@@ -11,10 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PagesController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'PagesController@index')->name('home');
+
+
+Route::get('/about', 'PagesController@about'); // a sintaxe do caminho também poderia ser 'pages_templates/about'
+
+Route::get('/services', 'PagesController@services');
+
+
+// testes com rota dinamica
+//Route::get('/users/{aaaa}/{bbb}', function ($id, $nome) {
+//    return "Esse é o usuário " . $nome . " com id número: " . $id;
+//});
